@@ -11,7 +11,7 @@ CONFIG = File.join(File.dirname(__FILE__), "config.rb")
 # Defaults for config options defined in CONFIG
 $num_instances = 1
 $instance_name_prefix = "core"
-$update_channel = "alpha"
+$update_channel = "beta"
 $enable_serial_logging = false
 $share_home = false
 $vm_gui = false
@@ -63,6 +63,8 @@ Vagrant.configure("2") do |config|
     v.check_guest_additions = false
     v.functional_vboxsf     = false
   end
+
+  config.dns.tld = "dev"
 
   # plugin conflict
   if Vagrant.has_plugin?("vagrant-vbguest") then
